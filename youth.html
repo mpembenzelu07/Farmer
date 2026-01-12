@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Initiatives | SMART-FARMER COOP</title>
+    <style>
+        /* Global Styles - Consistent with homepage */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: #ffcc00;
+            color: #2d5a27;
+        }
+        
+        .active {
+            background-color: #3a7033;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.95)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .page-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Youth Intro */
+        .youth-intro {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d5a27;
+            font-size: 2.2rem;
+        }
+        
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        
+        .highlight-stat {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2d5a27;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 4rem 0;
+            background-color: #f0f7ef;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .program-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .program-content {
+            padding: 1.5rem;
+        }
+        
+        .program-features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .program-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .program-features li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2d5a27;
+            font-weight: bold;
+        }
+        
+        .apply-button {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #2d5a27;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .apply-button:hover {
+            background-color: #e6b800;
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .stories-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .story-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .story-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #2d5a27;
+        }
+        
+        .story-content {
+            padding: 1.5rem;
+        }
+        
+        .story-content h4 {
+            color: #2d5a27;
+            margin-bottom: 0.5rem;
+        }
+        
+        .story-role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Partnerships */
+        .partnerships {
+            padding: 4rem 0;
+            background-color: #f0f7ef;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            background-color: white;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .partner-logo span {
+            font-weight: bold;
+            color: #2d5a27;
+            text-align: center;
+        }
+        
+        /* CTA Section */
+        .youth-cta {
+            padding: 4rem 0;
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .youth-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .youth-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #2d5a27;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 0 0.5rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #e6b800;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid #ffcc00;
+            color: #ffcc00;
+        }
+        
+        .secondary-button:hover {
+            background-color: #ffcc00;
+            color: #2d5a27;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3c1a;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            color: #ffcc00;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #3a5c35;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.3rem;
+            }
+            
+            .page-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 1rem auto;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>SMART<span>FARMER</span> COOP</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="solutions.html">Our Solutions</a></li>
+                    <li><a href="youth.html" class="active">Youth Initiatives</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Youth Initiatives</h2>
+            <p>Empowering Africa's next generation of agricultural innovators and entrepreneurs</p>
+        </div>
+    </section>
+
+    <!-- Youth Intro -->
+    <section class="youth-intro">
+        <div class="container">
+            <h2 class="section-title">Why Invest in Youth for Agriculture?</h2>
+            <p class="intro-text">Africa has the world's youngest population, with 60% under 25 years old. At the same time, agriculture employs 60% of Africans. By connecting these two realities, we can transform Africa's largest sector while creating meaningful employment for millions of young people.</p>
+            
+            <div class="highlight-stat">
+                <div class="stat-item">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-text">Of Africa's population is under 25</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12M</span>
+                    <span class="stat-text">Youth enter African job market yearly</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-text">Of Africans work in agriculture</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$1T</span>
+                    <span class="stat-text">Agribusiness potential by 2030</span>
+                </div>
+            </div>
+            
+            <p class="intro-text">Our youth initiatives are designed to equip young Africans with the skills, technology, and opportunities to become leaders in agricultural innovation. We believe that Africa's youth are not just the future of agriculture - they are the present opportunity for transformation.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Our Youth Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🎓</div>
+                        <h3>AgriTech Fellowship</h3>
+                    </div>
+                    <div class="program-content">
+                        <p>A 12-month intensive fellowship for recent graduates to develop and implement agritech solutions in partnership with farming communities.</p>
+                        <ul class="program-features">
+                            <li>Hands-on field experience</li>
+                            <li>Mentorship from industry experts</li>
+                            <li>Seed funding for projects</li>
+                            <li>Networking opportunities</li>
+                        </ul>
+                        <a href="#" class="apply-button">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🚀</div>
+                        <h3>Startup Incubator</h3>
+                    </div>
+                    <div class="program-content">
+                        <p>Support for early-stage agritech startups with potential to scale across Africa. We provide funding, mentorship, and access to markets.</p>
+                        <ul class="program-features">
+                            <li>Up to $50,000 seed funding</li>
+                            <li>Business development support</li>
+                            <li>Access to pilot communities</li>
+                            <li>Investor connections</li>
+                        </ul>
+                        <a href="#" class="apply-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">👨🏾‍🌾</div>
+                        <h3>Young Farmer Program</h3>
+                    </div>
+                    <div class="program-content">
+                        <p>Training and support for youth interested in modern farming practices, combining traditional knowledge with technology.</p>
+                        <ul class="program-features">
+                            <li>Practical farming skills</li>
+                            <li>Technology training</li>
+                            <li>Market access support</li>
+                            <li>Land access facilitation</li>
+                        </ul>
+                        <a href="#" class="apply-button">Join Program</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="section-title">Youth Success Stories</h2>
+            <div class="stories-container">
+                <div class="story-card">
+                    <div class="story-image">👩🏾‍💻</div>
+                    <div class="story-content">
+                        <h4>Nkechi Okoro</h4>
+                        <span class="story-role">AgriTech Fellowship Graduate, Nigeria</span>
+                        <p>"The fellowship transformed my computer science skills into practical solutions. I developed a mobile app that helps cassava farmers diagnose diseases from leaf photos. We've reached 5,000 farmers in 2 years."</p>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">👨🏾‍🔬</div>
+                    <div class="story-content">
+                        <h4>Thomas Mbeki</h4>
+                        <span class="story-role">Startup Incubator Participant, Kenya</span>
+                        <p>"With SMART-FARMER COOP's support, my startup developed affordable soil sensors for smallholder farmers. We've deployed 2,000 units across East Africa and helped farmers increase yields by 30%."</p>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">👩🏾‍🌾</div>
+                    <div class="story-content">
+                        <h4>Amina Jalloh</h4>
+                        <span class="story-role">Young Farmer Program, Ghana</span>
+                        <p>"I returned to my village after university with new farming techniques. With training and a small grant, I now manage a 5-acre organic vegetable farm that supplies restaurants in Accra and employs 8 other young people."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships -->
+    <section class="partnerships">
+        <div class="container">
+            <h2 class="section-title">Our Education & Youth Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <span>AFRICAN UNIVERSITIES ALLIANCE</span>
+                </div>
+                <div class="partner-logo">
+                    <span>YOUTH IN AGRICULTURE NETWORK</span>
+                </div>
+                <div class="partner-logo">
+                    <span>TECH FOR AGRICULTURE</span>
+                </div>
+                <div class="partner-logo">
+                    <span>AFRICA INNOVATION FUND</span>
+                </div>
+                <div class="partner-logo">
+                    <span>AGRIPRENEUR ACADEMY</span>
+                </div>
+                <div class="partner-logo">
+                    <span>DIGITAL FARMING INITIATIVE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="youth-cta">
+        <div class="container">
+            <h2>Ready to Shape the Future of African Agriculture?</h2>
+            <p>Whether you're a student, graduate, entrepreneur, or young professional, there's a place for you in Africa's agricultural transformation. Join our community of young innovators today.</p>
+            <a href="#" class="cta-button">Apply for Programs</a>
+            <a href="contact.html" class="cta-button secondary-button">Contact Our Youth Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SMART-FARMER COOP</h3>
+                    <p>Empowering Africa's youth to transform agriculture through technology, innovation, and sustainable practices.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solutions.html">Our Solutions</a></li>
+                        <li><a href="youth.html">Youth Initiatives</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>Nairobi, Kenya</li>
+                        <li>Lagos, Nigeria</li>
+                        <li>Accra, Ghana</li>
+                        <li>info@smartfarmercoop.africa</li>
+                        <li>+254 700 123 456</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SMART-FARMER COOP. Empowering Africa's Agricultural Future.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
